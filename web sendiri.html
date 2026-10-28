@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Pribadi Rusmiaska</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: white;
+            line-height: 1.7;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #0b1120;
+            border-bottom: 1px solid #26334d;
+            padding: 18px 8%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        section {
+            padding: 80px 8%;
+            scroll-margin-top: 65px;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .label {
+            color: #38bdf8;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.2;
+            margin: 15px 0;
+        }
+
+        .highlight {
+            color: #38bdf8;
+        }
+
+        .hero h2 {
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        /* FOTO PROFIL PRIBADI */
+        .profile {
+            width: 290px;
+            height: 290px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: 5px solid #38bdf8;
+            overflow: hidden;
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.3);
+            animation: melayang 3s ease-in-out infinite;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        @keyframes melayang {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 23px;
+            margin: 5px 5px 5px 0;
+            background: #38bdf8;
+            color: #07111f;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+            border: 1px solid #38bdf8;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #38bdf8;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 35px;
+        }
+
+        .about-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 30px;
+            background: #111c30;
+            border: 1px solid #26334d;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .about-box p {
+            color: #cbd5e1;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            padding: 25px;
+            background: #111c30;
+            border: 1px solid #26334d;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            border-color: #38bdf8;
+        }
+
+        .card .icon {
+            font-size: 38px;
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            margin: 10px 0;
+        }
+
+        .card p {
+            color: #cbd5e1;
+        }
+
+        .skill {
+            margin-bottom: 22px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .bar {
+            height: 9px;
+            background: #26334d;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(
+                90deg, #0284c7, #38bdf8
+            );
+            border-radius: 20px;
+        }
+
+        .contact-box {
+            max-width: 650px;
+            margin: auto;
+            padding: 35px;
+            background: #111c30;
+            border: 1px solid #26334d;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: #cbd5e1;
+            margin: 15px 0;
+        }
+
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #070b14;
+            color: #94a3b8;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            nav ul {
+                justify-content: center;
+                gap: 12px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 50px;
+            }
+
+            .profile {
+                width: 220px;
+                height: 220px;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+        <nav>
+            <div class="logo">Rusmiaska.</div>
+
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#keahlian">Keahlian</a></li>
+                <li><a href="#hobi">Hobi</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- BERANDA -->
+    <section class="hero" id="beranda">
+
+        <div class="hero-text">
+            <div class="label">HALO, SELAMAT DATANG!</div>
+
+            <h1>
+                Hai, Saya <span class="highlight">Rusmiaska</span>
+            </h1>
+
+            <h2>Mahasiswa Informatika</h2>
+
+            <p>
+                Selamat datang di website pribadi saya.
+                Saya adalah mahasiswa Informatika yang tertarik
+                dengan teknologi, pemrograman, jaringan komputer,
+                dan pengembangan website.
+                Saya terus belajar untuk mengembangkan kemampuan
+                dan meraih masa depan yang lebih baik.
+            </p>
+
+            <a href="#tentang" class="btn">Tentang Saya</a>
+            <a href="#kontak" class="btn btn-outline">
+                Hubungi Saya
+            </a>
+        </div>
+
+        <!-- FOTO PRIBADI -->
+        <div class="profile">
+            <img src="foto-saya.jpg"
+                 alt="Foto pribadi Rusmiaska">
+        </div>
+
+    </section>
+
+    <!-- TENTANG SAYA -->
+    <section id="tentang">
+        <h2 class="section-title">
+            Tentang <span class="highlight">Saya</span>
+        </h2>
+
+        <p class="section-desc">
+            Kenali saya lebih dekat
+        </p>
+
+        <div class="about-box">
+            <p>
+                Perkenalkan, nama saya
+                <b>Rusmiaska Saputra Pratama</b>.
+                Saya merupakan mahasiswa yang sedang mempelajari
+                bidang Informatika.
+            </p>
+
+            <p style="margin-top: 15px;">
+                Saya tertarik mempelajari komputer, pemrograman,
+                jaringan, dan teknologi informasi.
+                Saya percaya bahwa usaha, kedisiplinan, dan
+                kemauan untuk terus belajar merupakan kunci
+                untuk mencapai cita-cita.
+            </p>
+        </div>
+    </section>
+
+    <!-- KEAHLIAN -->
+    <section id="keahlian">
+        <h2 class="section-title">
+            Keahlian <span class="highlight">Saya</span>
+        </h2>
+
+        <p class="section-desc">
+            Kemampuan yang sedang saya kembangkan
+        </p>
+
+        <div class="about-box" style="text-align: left;">
+
+            <div class="skill">
+                <div class="skill-info">
+                    <span>HTML & CSS</span>
+                    <span>75%</span>
+                </div>
+                <div class="bar">
+                    <div class="progress" style="width: 75%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-info">
+                    <span>Java</span>
+                    <span>60%</span>
+                </div>
+                <div class="bar">
+                    <div class="progress" style="width: 60%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-info">
+                    <span>Database / MySQL</span>
+                    <span>55%</span>
+                </div>
+                <div class="bar">
+                    <div class="progress" style="width: 55%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="skill-info">
+                    <span>Jaringan Komputer</span>
+                    <span>60%</span>
+                </div>
+                <div class="bar">
+                    <div class="progress" style="width: 60%"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HOBI -->
+    <section id="hobi">
+        <h2 class="section-title">
+            Hobi & <span class="highlight">Minat</span>
+        </h2>
+
+        <p class="section-desc">
+            Aktivitas yang saya sukai
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">💻</div>
+                <h3>Teknologi</h3>
+                <p>
+                    Mempelajari komputer dan perkembangan
+                    teknologi informasi.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏊</div>
+                <h3>Berenang</h3>
+                <p>
+                    Menjaga kesehatan tubuh dan
+                    mengisi waktu luang.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📚</div>
+                <h3>Belajar</h3>
+                <p>
+                    Menambah pengetahuan dan meningkatkan
+                    kemampuan diri.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎯</div>
+                <h3>Pengembangan Diri</h3>
+                <p>
+                    Melatih kedisiplinan dan tanggung jawab
+                    untuk masa depan.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak">
+        <h2 class="section-title">
+            Hubungi <span class="highlight">Saya</span>
+        </h2>
+
+        <p class="section-desc">
+            Mari terhubung dan berbagi informasi
+        </p>
+
+        <div class="contact-box">
+            <div style="font-size: 45px;">📩</div>
+
+            <h3>Terima Kasih Sudah Berkunjung!</h3>
+
+            <p>
+                Senang sekali kamu sudah mengunjungi
+                website pribadi saya.
+            </p>
+
+            <!-- GANTI DENGAN NOMOR WHATSAPP KAMU -->
+            <a class="btn"
+               href="https://wa.me/6281234567890"
+               target="_blank"
+               rel="noopener noreferrer">
+                Chat WhatsApp
+            </a>
+
+            <button class="btn btn-outline" onclick="salam()">
+                Klik Saya
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            &copy; <span id="tahun"></span>
+            Rusmiaska. Dibuat dengan ❤️
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("tahun").textContent =
+            new Date().getFullYear();
+
+        function salam() {
+            alert(
+                "Halo! Terima kasih sudah mengunjungi website saya 😊"
+            );
+        }
+    </script>
+
+</body>
+</html>
